@@ -1,0 +1,20 @@
+[
+{
+  "directory": "D:/Desktop/GAMES101/Assignment1/code/build",
+  "command": "D:\\VSCode_Workspace\\mingw64\\bin\\g++.exe  @CMakeFiles/Rasterizer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Rasterizer.dir\\main.cpp.obj -c D:\\Desktop\\GAMES101\\Assignment1\\code\\main.cpp",
+  "file": "D:/Desktop/GAMES101/Assignment1/code/main.cpp",
+  "output": "CMakeFiles/Rasterizer.dir/main.cpp.obj"
+},
+{
+  "directory": "D:/Desktop/GAMES101/Assignment1/code/build",
+  "command": "D:\\VSCode_Workspace\\mingw64\\bin\\g++.exe  @CMakeFiles/Rasterizer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Rasterizer.dir\\rasterizer.cpp.obj -c D:\\Desktop\\GAMES101\\Assignment1\\code\\rasterizer.cpp",
+  "file": "D:/Desktop/GAMES101/Assignment1/code/rasterizer.cpp",
+  "output": "CMakeFiles/Rasterizer.dir/rasterizer.cpp.obj"
+},
+{
+  "directory": "D:/Desktop/GAMES101/Assignment1/code/build",
+  "command": "D:\\VSCode_Workspace\\mingw64\\bin\\g++.exe  @CMakeFiles/Rasterizer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Rasterizer.dir\\Triangle.cpp.obj -c D:\\Desktop\\GAMES101\\Assignment1\\code\\Triangle.cpp",
+  "file": "D:/Desktop/GAMES101/Assignment1/code/Triangle.cpp",
+  "output": "CMakeFiles/Rasterizer.dir/Triangle.cpp.obj"
+}
+]
