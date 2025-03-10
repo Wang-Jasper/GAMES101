@@ -28,6 +28,7 @@ Eigen::Matrix4f get_model_matrix(float rotation_angle)
     // TODO: Implement this function
     // Create the model matrix for rotating the triangle around the Z axis.
     // Then return it.
+    rotation_angle = rotation_angle * MY_PI / 180.0f;
 
     model << cos(rotation_angle), -sin(rotation_angle), 0, 0,
         sin(rotation_angle), cos(rotation_angle), 0, 0,
@@ -49,8 +50,8 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
     // Then return it.
 
     float b, t, l, r;
-    float fov = 0.5 * eye_fov * MY_PI / 180.0f; // convert to curve
-    b = zNear * tan(fov);                       // since zNear tends to be negative?
+    float fov = 0.5f * eye_fov * MY_PI / 180.0f; // convert to curve
+    b = zNear * tan(fov);                        // since zNear tends to be negative?
     t = -b;
     l = -t * aspect_ratio;
     r = -l;
@@ -77,12 +78,12 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
     return projection;
 }
 
-Eigen::Matrix4f get_rotation(Vector3f axis, float angle)
+Eigen::Matrix3f get_rotation(Vector3f axis, float angle)
 {
     // Extra : Return the rotation matrix around any given axis
     // according to Rodrigues' Rotation Formula
 
-    Matrix4f rotation;
+    Matrix3f rotation;
     angle = angle * MY_PI / 180;
 
     Matrix3f cross_product_matrix;
