@@ -23,3 +23,14 @@ $$\mathbf{R}(\mathbf{n}, \alpha) = \cos(\alpha) \mathbf{I} + (1 - \cos(\alpha)) 
 ## Shading
 - Lambertian (Diffuse) Shading
 - Blinn-Phong Reflection Model
+    $$ L = L_a + L_d + L_s \\= k_a I_a + k_d \left( \frac{I}{r^2} \right) \max(0, \mathbf{n} \cdot \mathbf{l}) + k_s\left( \frac{I}{r^2} \right) \max(0, \mathbf{n} \cdot\mathbf{h})^p $$
+- Barycentric Coordinates : are not invariant under projection
+    - Used for Linearly interpolate values at vertices 
+- Texture Magnification
+    - Bilinear Interpolation 4x4 : for small texture
+        <div align= "center">
+            <img src ="readme_image/bilinear_interpolation.png" height = 60% width = 60%>
+            </div>
+    - Bicubic Interpolation 16x16
+    - Mipmap : for large texture, allowing fast, approx, square range queries
+    - Anisotropic Filtering
