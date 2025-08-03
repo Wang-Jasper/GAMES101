@@ -17,6 +17,10 @@ namespace rst
         Depth = 2
     };
 
+    /// @brief Combineing Buffer flags
+    /// @param a Buffers
+    /// @param b Buffers
+    /// @return Intersection of buffer flags
     inline Buffers operator|(Buffers a, Buffers b)
     {
         return Buffers((int)a | (int)b);

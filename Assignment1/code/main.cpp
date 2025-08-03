@@ -58,16 +58,19 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
 
     // Do the Orthographic Projection finally
     Matrix4f ortho1, ortho2;
+    // center to origin
     ortho1 << 1, 0, 0, -(r + l) / 2,
         0, 1, 0, -(t + b) / 2,
         0, 0, 1, -(zNear + zFar) / 2,
         0, 0, 0, 1;
 
+    // scale to [-1, 1]
     ortho2 << 2 / (r - l), 0, 0, 0,
         0, 2 / (t - b), 0, 0,
         0, 0, 2 / (zNear - zFar), 0,
         0, 0, 0, 1;
 
+    // frustum to cuboid
     projection << zNear, 0, 0, 0,
         0, zNear, 0, 0,
         0, 0, zNear + zFar, -zNear * zFar,
@@ -102,6 +105,8 @@ int main(int argc, const char **argv)
     bool command_line = false;
     std::string filename = "output.png";
 
+    // Parse command-line arguments
+    // ./Rasterizer r 30 output_name.png
     if (argc >= 3)
     {
         command_line = true;
@@ -116,16 +121,19 @@ int main(int argc, const char **argv)
 
     rst::rasterizer r(700, 700);
 
+    // the position of camera
     Eigen::Vector3f eye_pos = {0, 0, 5};
 
-    std::vector<Eigen::Vector3f> pos{{2, 0, -2}, {0, 2, -2}, {-2, 0, -2}};
+    // the position of the triangle
+    std::vector<Eigen::Vector3f> pos{{0, 0, -2}, {0, 2, -2}, {-2, 0, -2}};
 
     std::vector<Eigen::Vector3i> ind{{0, 1, 2}};
 
+    // store the triangle into resterizar
     auto pos_id = r.load_positions(pos);
     auto ind_id = r.load_indices(ind);
 
-    int key = 0;
+    int key = 0; // keyboard
     int frame_count = 0;
 
     if (command_line)
@@ -147,7 +155,7 @@ int main(int argc, const char **argv)
 
     while (key != 27)
     {
-        r.clear(rst::Buffers::Color | rst::Buffers::Depth);
+        r.clear(rst::Buffers::Color | rst::Buffers::Depth); // clear the last frame
 
         r.set_model(get_model_matrix(angle));
         r.set_view(get_view_matrix(eye_pos));
